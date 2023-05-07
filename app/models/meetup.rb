@@ -4,4 +4,6 @@ class Meetup < ApplicationRecord
 
     mount_uploader :main_image, MeetupUploader
     mount_uploader :thumb_image, MeetupUploader
+
+    belongs_to :user
 end

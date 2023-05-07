@@ -10,7 +10,9 @@ class MeetupsController < ApplicationController
 
   # GET /meetups/1
   def show
-    render json: @meetup
+    @user = User.find(@meetup.user_id)
+    render json: @meetup, include: [:user]
+    
   end
 
   # POST /meetups
@@ -46,6 +48,6 @@ class MeetupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meetup_params
-      params.require(:meetup).permit(:title, :description, :location, :time, :date, :main_image, :thumb_image)
+      params.require(:meetup).permit(:title, :description, :location, :time, :date, :main_image, :thumb_image, :user_id)
     end
 end
