@@ -8,6 +8,15 @@ class UsersController < ApplicationController
     render json: @users
   end
 
+  def login
+    @user = User.find_by(email: params[:email])
+    if @user && @user.authenticate(params[:password])
+        render json: @user, status: :ok
+    else
+        render json: {error: "Invalid username or password"}, status: :unauthorized
+    end
+  end
+
   # GET /users/1
   def show
     render json: @user
