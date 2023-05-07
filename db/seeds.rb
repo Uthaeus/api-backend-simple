@@ -6,8 +6,6 @@
         location: "Anywhere, USA",
         time: "12:00pm",
         date: "12/12/2023",
-        main_image: "https://via.placeholder.com/600x400",
-        thumb_image: "https://via.placeholder.com/350x200"
     )
 end
 
