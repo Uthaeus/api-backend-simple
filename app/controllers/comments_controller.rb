@@ -11,6 +11,10 @@ class CommentsController < ApplicationController
 
     private
 
+    def current_user
+        @current_user ||= User.find_by!(id: request.headers[:token])
+    end
+
     def set_meetup!
         @meetup = Meetup.find_by!(id: comment_params[:meetup_id])
     end
