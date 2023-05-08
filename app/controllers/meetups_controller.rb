@@ -5,7 +5,7 @@ class MeetupsController < ApplicationController
   def index
     @meetups = Meetup.all
 
-    render json: @meetups
+    render json: @meetups, include: :user
   end
 
   # GET /meetups/1
