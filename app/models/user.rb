@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_secure_password validations: false
 
     has_many :meetups
+    has_many :comments, dependent: :destroy
 
     def set_role
         self.role ||= :user
