@@ -4,6 +4,9 @@ Rails.application.routes.draw do
       post '/login', to: 'users#login'
     end
   end
+
+  resources :comments, only: [:create, :destroy]
+  
   resources :meetups
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

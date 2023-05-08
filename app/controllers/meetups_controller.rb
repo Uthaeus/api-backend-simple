@@ -11,7 +11,8 @@ class MeetupsController < ApplicationController
   # GET /meetups/1
   def show
     @user = User.find(@meetup.user_id)
-    render json: @meetup, include: [:user]
+    @comments = @meetup.comments.order(created_at: :desc)
+    render json: @meetup, include: [:user, :comments]
     
   end
 
